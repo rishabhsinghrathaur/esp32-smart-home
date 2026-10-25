@@ -54,6 +54,16 @@ extra bridged through Arduino Cloud → Google Home.
 | Updates | Web OTA (`/update`) and ArduinoOTA, both password protected |
 | Security | Setup mode blocks relay control, origin checking on mutating endpoints, no port-forwarding needed |
 
+## Screenshots
+
+| Dashboard | Wi-Fi setup |
+| --- | --- |
+| <img src="screenshots/dashboard.jpeg" width="280" alt="Dashboard"> | <img src="screenshots/wifi_setup.jpeg" width="280" alt="Wi-Fi setup page"> |
+
+| Google Home | Gemini voice control |
+| --- | --- |
+| <img src="screenshots/googlehome.jpeg" width="280" alt="Google Home"> | <img src="screenshots/gemini.jpeg" width="280" alt="Gemini voice control"> |
+
 ## Hardware
 
 | Part | Notes |
