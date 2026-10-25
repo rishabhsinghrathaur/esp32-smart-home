@@ -11,20 +11,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # The default cloud_config.h does not exist in CI (it is git-ignored).
-      # Use the example so the cloud code paths still compile.
+      # cloud_config.h is git-ignored, so CI uses the example template.
+      # This keeps the cloud code paths part of the compile check.
       - name: Provide example cloud config
         run: cp cloud_config.example.h cloud_config.h
 
-      - uses: arduino/compile-sketches@v1
-        with:
-          fqbn: esp32:esp32:esp32:PartitionScheme=huge_app
-          platforms: |
-            - name: esp32:esp32
-              source-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
-          libraries: |
-            - ArduinoIoTCloud
-          sketch-paths: |
-            - .
-          enable-deltas-report: false
-          enable-size-deltas-report: false
+      - uses: arduino/setup-arduino-cli@v2
+
+      - name: Install ESP32 core and libraries
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install esp32:esp32
+          arduino-cli lib install ArduinoIoTCloud
+
+      - name: Compile
+        run: arduino-cli compile --fqbn esp32:esp32:esp32:PartitionScheme=huge_app .
