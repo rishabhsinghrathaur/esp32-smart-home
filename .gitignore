@@ -1,0 +1,20 @@
+# --- Local secrets ----------------------------------------------------------
+# Copy cloud_config.example.h to cloud_config.h and fill in your values.
+# The real file must never be committed.
+cloud_config.h
+
+# --- Arduino build output ---------------------------------------------------
+build/
+*.bin
+*.elf
+*.map
+
+# --- Editors / IDE ----------------------------------------------------------
+.theia/
+.vscode/
+.idea/
+
+# --- OS junk ----------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
